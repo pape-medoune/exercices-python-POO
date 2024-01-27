@@ -1,3 +1,5 @@
+from math import sqrt
+
 """
 
 Écrire en Python une classe «Rectangle» ayant deux variables « a » et « b »
@@ -84,10 +86,44 @@ Réaliser en Python  une classe point permettant de manipuler un point d'un plan
 
 class Point:
     def __init__(self, x, y):
-        self._x = x
-        self._y = y
+        self.x = x
+        self.y = y
 
-    def
+    def set_x(self,a):
+        return self.x = a
+
+    def set_y(self,b):
+        return self.y = b
+
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
+
+
+    def membreDeplace(self, dx, dy):
+        self.set_x(self.get_x + dx)
+        self.set_y(self.get_y + dy)
+
+    def membreAffiche(self):
+        print(f"({self.get_x(),self.get_y()}")
+
+    def saisir(self):
+        self.set_x = input("Entrer x: \n")
+        self.set_y = input("Entrer y: \n")
+
+    def distance(self, a):
+        a1 = (self.get_x() - a.get_x()) * (self.get_x() - a.get_x())
+        a2 = (self.get_y() - a.get_y()) * (self.get_y() - a.get_y())
+
+        r = sqrt(a1+a2)
+
+        return r
+
+
+
 
 if __name__ == "__main__":
     """
