@@ -157,9 +157,67 @@ et modifie le solde du compte en solde * (1 + taux d’intérêt).
 
 """
 
-class CompteBancaire:
+class Account:
+    def __init__(self, solde):
+        self.solde = 0
 
 
+    def getBalance(self):
+        return self.solde
+
+    def deposer(self, montant):
+        self.solde += montant
+
+        return self.solde
+
+    def retirer(self, montant):
+        self.solde -= montant
+
+        return self.solde
+
+    def ajouter_interet(self, taux):
+        self.solde *= (1+(taux/100))
+
+        return self.solde
+
+"""
+Créer en Python une classe appelée Temps, qui a des membres de type int 
+tels que heures, minutes et secondes.(rendez-les private)
+1) Un constructeur doit initialiser ces données à 0
+2) Un autre constructeur devrait l’initialiser à des valeurs fixes.
+3) Une fonction membre devrait l’afficher, au format 17h 59min 59s.
+4) Une autre fonction pour renvoyer les données de chaque membre nommez-les getheurs, 
+getMin et getSec
+5) Une fonction membre doit ajouter deux objets de type Temps passé en arguments.
+
+"""
+
+
+class temps:
+    def __init__(self, h, m, s):
+        self.h = h
+        self.m = m
+        self.s = s
+
+    def set_h(self, a):
+        self.h = a
+
+    def get_h(self):
+        return self.h
+
+    def set_m(self, a):
+        self.m = a
+
+    def get_m(self):
+        return self.m
+
+    def set_s(self, a):
+        self.s = a
+
+    def get_s(self):
+        return self.s
+
+    
 
 if __name__ == "__main__":
     """
@@ -195,6 +253,7 @@ if __name__ == "__main__":
 
     """
 
+    """
 
     #Test Pour l'exercice 4
 
@@ -214,4 +273,4 @@ if __name__ == "__main__":
     print(f"{(c.get_x() , c.get_y())}")
 
 
-
+    """
