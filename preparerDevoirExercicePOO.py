@@ -225,9 +225,12 @@ class temps:
     def membre(self):
         print(f"{self.get_h()}h {self.get_m()}m {self.get_s()}s")
 
-    def ajoutTemps(self):
-
-
+    def ajoutTemps(self, t1, t2):
+        self._s = t1.get_s() + t2.get_s()
+        self._m = t1.get_m() + t2.get_m() + self._s / 60
+        self._h = t1.get_h() + t2.get_h() + self._m / 60
+        self._s = self._s % 60
+        self._m = self._m % 60
 
 
 """
@@ -246,7 +249,8 @@ ainsi que les accesseurs et mutateurs triviaux (lecture
 et modification de la largeur et de la hauteur).
 
 """
-
+class Rectangle:
+    
 
 if __name__ == "__main__":
     """
