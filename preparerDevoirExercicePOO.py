@@ -89,39 +89,75 @@ class Point:
         self.x = x
         self.y = y
 
-    def set_x(self,a):
-        return self.x = a
-
-    def set_y(self,b):
-        return self.y = b
-
-
     def get_x(self):
-        return self.x
+       return self.x
+
+    def set_x(self,x):
+        self.x=x
+
 
     def get_y(self):
         return self.y
 
 
-    def membreDeplace(self, dx, dy):
-        self.set_x(self.get_x + dx)
-        self.set_y(self.get_y + dy)
+    def set_y(self, y):
+        self.y = y
 
-    def membreAffiche(self):
-        print(f"({self.get_x(),self.get_y()}")
+    def membre(self, dx, dy):
+        self.set_x(self.get_x() + dx)
+        self.set_y(self.get_y() + dy)
 
-    def saisir(self):
-        self.set_x = input("Entrer x: \n")
-        self.set_y = input("Entrer y: \n")
 
-    def distance(self, a):
-        a1 = (self.get_x() - a.get_x()) * (self.get_x() - a.get_x())
-        a2 = (self.get_y() - a.get_y()) * (self.get_y() - a.get_y())
+    def afficherCoordonnee(self):
+       return f"({self.get_x()} , {self.get_y()})"
 
-        r = sqrt(a1+a2)
+    def __str__(self):
+       return f"({self.get_x()} , {self.get_y()})"
 
-        return r
+    def saisie(self):
+        a1 = input("Donnez x:\n")
+        a2 = input("Donnez y:\n")
 
+        self.set_x(a1)
+        self.set_y(a2)
+
+
+    def calculeDistance(self, p):
+        a1 = (self.get_x() - p.get_x()) * (self.get_x() - p.get_x())
+        a2 = (self.get_y() - p.get_y()) * (self.get_y() - p.get_y())
+
+        return sqrt(a1 + a2)
+
+
+    def milieuSegment(self, p):
+        a1 = Point(0 ,0)
+
+        a1.x = (self.get_x() + p.get_x()) / 2
+        a1.y = (self.get_y() + p.get_y()) / 2
+
+        return a1
+
+
+"""
+
+Écrire un programme en Python qui simule la gestion d’un simple compte bancaire. 
+Le compte est créé avec un solde initial. Il est possible de déposer et de retirer 
+des fonds, d’ajouter des intérêts et de connaître le solde actuel. Cela devrait 
+être implémenté dans une classe nommée Account qui comprend:
+
+
+1) Un constructeur par défaut qui met le solde initial à zéro.
+2) Un constructeur qui accepte une balance initial comme paramètre.
+3) Une fonction getBalance qui renvoie le solde actuel.
+4) Une méthode deposer pour déposer un montant spécifié.
+5) Une méthode retirer pour retirer un montant spécifié.
+6) Une méthode ajouter_Interet pour ajouter de l’intérêt au compte.
+La méthode  ajouter_Interet  prend le taux d’intérêt comme paramètre 
+et modifie le solde du compte en solde * (1 + taux d’intérêt).
+
+"""
+
+class CompteBancaire:
 
 
 
@@ -158,4 +194,24 @@ if __name__ == "__main__":
     print(Etudiant.afficher(e))
 
     """
+
+
+    #Test Pour l'exercice 4
+
+
+    p = Point(4, -5)
+
+    o = Point(2, 6)
+
+    print(p)
+    print(p.afficherCoordonnee())
+
+    print(o)
+    print(o.afficherCoordonnee())
+
+    c = p.milieuSegment(o)
+
+    print(f"{(c.get_x() , c.get_y())}")
+
+
 
