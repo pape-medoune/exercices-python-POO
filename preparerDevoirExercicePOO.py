@@ -194,30 +194,59 @@ getMin et getSec
 
 
 class temps:
-    def __init__(self, h, m, s):
-        self.h = h
-        self.m = m
-        self.s = s
+    def __init__(self, h=0, m=0, s=0):
+        self._h = h
+        self._m = m
+        self._s = s
+
+    def setTemps(self, h, m, s):
+        self._h = h
+        self._m = m
+        self._s = s
 
     def set_h(self, a):
-        self.h = a
+        self._h = a
 
     def get_h(self):
-        return self.h
+        return self._h
 
     def set_m(self, a):
-        self.m = a
+        self._m = a
 
     def get_m(self):
-        return self.m
+        return self._m
 
     def set_s(self, a):
-        self.s = a
+        self._s = a
 
     def get_s(self):
-        return self.s
+        return self._s
 
-    
+    def membre(self):
+        print(f"{self.get_h()}h {self.get_m()}m {self.get_s()}s")
+
+    def ajoutTemps(self):
+
+
+
+
+"""
+
+Écrire en Python un programme utilisant une classe rectangle
+dont le constructeur prend deux paramètres, largeur et hauteur
+et qui offre les fonctions suivantes :
+
+1) calcul du périmètre
+
+2) calcul de la surface
+
+3)  affichage
+
+ainsi que les accesseurs et mutateurs triviaux (lecture
+et modification de la largeur et de la hauteur).
+
+"""
+
 
 if __name__ == "__main__":
     """
