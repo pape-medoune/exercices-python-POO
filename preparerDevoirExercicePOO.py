@@ -250,7 +250,36 @@ et modification de la largeur et de la hauteur).
 
 """
 class Rectangle:
-    
+    def __init__(self, longueur, largeur, hauteur):
+        self.longueur = longueur
+        self.largeur  = largeur
+        self.hauteur = hauteur
+
+    def set_longueur(self, a):
+        self.longueur = a
+
+    def get_longueur(self):
+        return self.longueur
+
+    def set_largeur(self, a):
+        self.largeur = a
+
+    def get_largeur(self):
+        return self.largeur
+
+    def set_hauteur(self, a):
+        self.hauteur = a
+
+    def get_hauteur(self):
+        return self.hauteur
+    def perimetre(self):
+        return (self.get_longueur() +self.get_largeur()) /2
+
+    def surface(self):
+        return self.get_longueur() * self.get_largeur()
+
+    def affichage(self):
+        print(f"La figure rectangle de dimension l = {self.get_longueur()} , L = {self.get_largeur()} et de h = {self.get_hauteur()} \n à pour perimetre {self.perimetre()} et pour surface {self.surface()}")
 
 if __name__ == "__main__":
     """
