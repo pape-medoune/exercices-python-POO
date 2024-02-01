@@ -485,8 +485,72 @@ class Calcul:
             return a+self.somme(a-1)
 
 
-    def testPrim(self):
-        
+    def testPrim(self, a):
+        if(a % 2!=0):
+            print("Le nombre est impaire")
+        else:
+            print("Le nombre est paire")
+
+
+
+"""
+Définissez ci-dessous une classe Etudiant dont les attibuts sont :
+nom, prenom, note_svt, note_maths et note_phy.
+Puis créez une méthode spéciale **str (self) qui permettra d'afficher :
+'NOM Prenom a obtenu note_svt en SVT, note_maths en Mathématiques et note_phy en Physique'
+En tapant print(E) où E est une instance de la classe Etudiant.
+Veuillez y rajouter une méthode moyenne(self)** qui permet de calculer la moyenne des 3 notes d'un
+étudiant. Puis exécutez les tests qui doivent passer sans erreur si le code est correct.
+Ecrivez une méthode spéciale **lt (self,other)** qui permet de comparer 2 étudiants en fonction de
+leur moyenne. Ainsi etudiant1 < etudiant2 renverra True si la moyenne de l'étudiant 1 est strictement
+inférieure à celle de l'étudiant 2. Exécutez les tests qui doivent passer sans erreur si le code est correct
+"""
+
+#EXO 1 SUITE TD
+class Etudiant:
+    def __init__(self, nom, prenom, note_svt, note_math, note_phy):
+        self.nom = nom
+        self.prenom = prenom
+        self.math = note_math
+        self.phy = note_phy
+        self.svt = note_svt
+
+
+    def __str__(self):
+        return f"{self.nom} {self.prenom} a obtenu {self.math} en math ,{self.phy} en physique et {self.svt} en svt"
+
+
+    def moyenne(self):
+        return (self.math + self.svt + self.phy)/3
+
+
+    def __gt__(self,other):
+        return self.moyenne()<other.moyenne()
+
+class Point3D:
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __add__(self, other):
+        return f"{self.x + other.x}, {self.y + other.y}, {self.z +other.z}"
+
+
+p1 = Point3D(1, 4, 5)
+p2 = Point3D(5, 6, 7)
+
+res = p1.__add__(p2)
+
+print(res)
+
+E1 = Etudiant("Fall","Mouhamedoune",14,15,10)
+E2 = Etudiant("Niang", "Mor", 17, 19, 5)
+
+if(E2 > E1):
+    print("Moyenne E1 > E2")
+else:
+    print("Moyenne E1 < E2")
 
 c = Calcul()
 
