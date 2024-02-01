@@ -281,6 +281,83 @@ class Rectangle:
     def affichage(self):
         print(f"La figure rectangle de dimension l = {self.get_longueur()} , L = {self.get_largeur()} et de h = {self.get_hauteur()} \n à pour perimetre {self.perimetre()} et pour surface {self.surface()}")
 
+
+"""
+Écrivez un programme en Python qui définit une classe appelée Forme
+avec un constructeur qui donne de la valeur à la largeur(x) et à la hauteur(y). 
+Définir la méthode aire() dans les deux sous-classes Triangle et Rectangle, 
+qui calculent l’aire. Dans la méthode principale main, définissez deux variables, 
+un triangle et un rectangle, puis appelez la fonction aire() dans ces deux variables.
+
+Notez que:
+
+ l’aire du triangle est = largeur * hauteur / 2 
+
+l’aire du rectangle est = largeur * hauteur.
+"""
+class Forme:
+    def __init__(self, hauteur=0, largeur=0):
+        self.largeur = largeur
+        self.hauteur = hauteur
+
+class Triangle(forme):
+    def __init__(self, hauteur=0, largeur=0):
+        Forme.__init__(self, hauteur, largeur)
+
+    def aire(self):
+        return (self.hauteur * self.largeur)/2
+
+
+class Rectangle(forme):
+    def __init__(self, hauteur=0, largeur=0):
+        Forme.__init__(self, hauteur, largeur)
+
+    def aire(self):
+        return self.hauteur * self.largeur
+
+
+class RectangleP:
+    def __init__(self, longueur, largeur):
+        self.longueur = longueur
+        self.largeur = largeur
+
+
+    def perimetre(self):
+        return ((self.longueur + self.largeur)*2)
+
+    def aire(self):
+        return self.longueur * self.largeur
+
+
+    def get_largeur(self):
+        return self.largeur
+
+    def get_longueur(self):
+        return self.largeur
+
+    def set_largeur(self, a):
+        self.largeur = a
+
+    def set_longueur(self, a):
+        self.longueur = a
+
+class Parallelepipede(RectangleP):
+    def __init__(self, largeur ,longueur, hauteur):
+        RectangleP.__init__(self, largeur, longueur)
+        self.hauteur = hauteur
+
+
+    def Volume(self):
+        return self.get_largeur() * self.get_longueur() * self.hauteur
+
+
+
+
+class CompteBancaire:
+    
+
+
+
 if __name__ == "__main__":
     """
     Test Pour l'exercice 1
