@@ -1,3 +1,4 @@
+import math
 from math import sqrt
 
 """
@@ -300,7 +301,7 @@ class Forme:
         self.largeur = largeur
         self.hauteur = hauteur
 
-class Triangle(forme):
+class Triangle(Forme):
     def __init__(self, hauteur=0, largeur=0):
         Forme.__init__(self, hauteur, largeur)
 
@@ -308,14 +309,26 @@ class Triangle(forme):
         return (self.hauteur * self.largeur)/2
 
 
-class Rectangle(forme):
+class Rectangle(Forme):
     def __init__(self, hauteur=0, largeur=0):
         Forme.__init__(self, hauteur, largeur)
 
     def aire(self):
         return self.hauteur * self.largeur
 
-
+"""
+1) Ecrire une classe Rectangle en langage Python, 
+permettant de construire un rectangle dotée d'attributs 
+longueur et largeur.
+2) Créer une méthode Perimetre() permettant de calculer 
+le périmètre du rectangle et une méthode Surface() 
+permettant de calculer la surface du rectangle
+3) Créer les getters et setters.
+4) Créer une classe fille Parallelepipede héritant 
+de la classe Rectangle et dotée en plus d'un attribut 
+hauteur et d'une autre méthode Volume() permettant 
+de calculer le volume du Parallélépipède.
+"""
 class RectangleP:
     def __init__(self, longueur, largeur):
         self.longueur = longueur
@@ -351,13 +364,134 @@ class Parallelepipede(RectangleP):
         return self.get_largeur() * self.get_longueur() * self.hauteur
 
 
-
+"""
+Créer une classe Python nommée CompteBancaire 
+qui représente un compte bancaire, ayant 
+pour attributs : numeroCompte (type numérique ) , 
+nom (nom du propriétaire du compte du type chaine), solde.
+2) Créer un constructeur ayant comme paramètres : numeroCompte, nom, solde.
+3) Créer une méthode Versement() qui gère les versements.
+4) Créer une méthode Retrait() qui gère les retraits.
+5) Créer une méthode Agios() permettant d'appliquer les agios à un pourcentage de 5 % du solde
+6) Créer une méthode afficher() permettant d’afficher les détails sur le compte
+7) Donner le code complet de la classe CompteBancaire.
+"""
 
 class CompteBancaire:
-    
+    def __init__(self,numeroCompte,nom,solde):
+        self.nom = nom
+        self.numeroCompte = numeroCompte
+        self.solde = solde
+
+
+    def versement(self,montant):
+        return self.solde+montant
+
+    def retrait(self,montant):
+        return self.solde-montant
+
+    def agios(self):
+        return (self.solde * 5)/100
+
+
+"""
+1) Définir une classe Cercle permettant de créer un cercle C(O,r) de centre O(a,b) et de rayon r à l'aide du constructeur :
+2)Définir une méthode Surface() de la classe qui permet de calculer la surface du cercle
+3)Définir une méthode Perimetre() de la classe qui permet de calculer le périmètre du cercle
+4) Définir une méthode testAppartenance() de la classe qui permet de tester si un point A(x,y) appartient ou non au cercle C(O,r).
+"""
+class Centre:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
+
+    def set_x(self, x):
+        self.x = x
+
+    def set_y(self, y):
+        self.y = y
 
 
 
+
+class Cercle(Centre):
+    def __init__(self, x, y, rayon):
+        Centre().__init__(self, x, y)
+        self.rayon = rayon
+
+    def perimetre(self):
+        return math.pi * 2 * self.rayon
+
+    def aire(self):
+        return math.pi * self.rayon * self.rayon
+
+
+    def formEquation(self, x, y):
+        return (x-self.get_x())**2 + (y-self.get_y()) - self.r**2
+    def appartenance(self):
+        if (self.formEquation(x, y) == 0):
+            print("Le point que vous avez mentionné appartient au cercle ")
+        else:
+            print("Le point que vous avez mentionné n'appartient pas au cercle ")
+
+"""
+1) Créer une classe Calcul ayant un constructeur par 
+défaut (sans paramètres) permettant d’effectuer différents 
+calculs sur les nombres entiers.
+2) Créer au sein de la classe Calcul une méthode nommée 
+Factorielle() qui permet de calculer le factorielle d'un entier. 
+Tester la méthode en faisant une instanciation sur la classe.
+3) Créer au sein de la classe Calcul une méthode nommée Somme()
+ permettant de calculer la somme des n premiers entiers:  1 + 2 + 3 + .. + n. 
+ Tester la méthode.
+4) Créer au sein de la classe Calcul une méthode nommée testPrim() 
+permettant de tester la primalité d'un entier donné. 
+Tester la méthode.
+5) Créer au sein de la classe Calcul une méthode nommée testPrims() 
+permettant de tester si deux nombres sont premier entre eux.
+6) Créer une méthode tableMult() qui crée et affiche 
+la table de multiplication d'un entier donné. 
+Créer ensuite une méthode  allTablesMult()  
+permettant d'afficher toutes les tables de multiplications 
+des entiers 1, 2, 3, ..., 9.
+7) Créer une méthode  listDiv() qui récupère tous les 
+diviseurs d'un entier donné sur une liste Ldiv. 
+Créer une autre méthode listDivPrim() qui récupère 
+tous les diviseurs premiers d'un entier donné.
+
+"""
+
+class Calcul:
+    def __init__(self):
+        pass
+
+    def factoriel(self,a):
+        if(a == 0):
+            return 1
+        else:
+            return a * self.factoriel(a - 1)
+
+    def somme(self, a):
+        if(a==1):
+            return 1
+        else:
+            return a+self.somme(a-1)
+
+
+    def testPrim(self):
+        
+
+c = Calcul()
+
+print(c.factoriel(4))
+print(c.somme(4))
 if __name__ == "__main__":
     """
     Test Pour l'exercice 1
