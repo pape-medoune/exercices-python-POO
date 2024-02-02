@@ -537,6 +537,9 @@ class Point3D:
         return f"{self.x + other.x}, {self.y + other.y}, {self.z +other.z}"
 
 
+
+
+
 p1 = Point3D(1, 4, 5)
 p2 = Point3D(5, 6, 7)
 
@@ -611,3 +614,23 @@ if __name__ == "__main__":
 
 
     """
+
+    jours = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    mois = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    mj = []
+    for i in range(0,12):
+        mj.append((mois[i],jours[i]))
+
+    print(mj)
+    jours_semaine = ["Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    k=0
+    for i in range(0, 12):
+        for j in range(1,jours[i]+1):
+            print(f"{jours_semaine[k]} {j} {mois[i]} ")
+            k+=1
+            if (k==8):
+                k=0
+
+
+
+
